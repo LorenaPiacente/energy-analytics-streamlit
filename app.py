@@ -24,6 +24,8 @@ ld = load_data()
 # endregion
 
 # region ******* Barra lateral e filtros *******
+
+# Unidade de tempo
 st.sidebar.divider()
 unidade = st.sidebar.radio("Exibir tempo em:", ["Minutos", "Horas"])
 
@@ -35,6 +37,19 @@ else:
     ld["tempo_horas"] = ld["tempo_minutos"] / 60
     coluna_tempo = "tempo_horas"
     label_tempo = "Tempo (Horas)"
+
+# Modelo de veículo
+st.sidebar.divider()
+opcoes_modelos = ld["modelo_veiculo"].unique().tolist()
+
+modelos_selecionados = st.sidebar.multiselect(
+    "Filtrar por Modelo", 
+    options=opcoes_modelos,
+    default=[] # Começa vazio
+)
+
+if modelos_selecionados:
+    ld = ld[ld["modelo_veiculo"].isin(modelos_selecionados)]
 # endregion
 
 # region ******* Visualizações dos gráficos *******
