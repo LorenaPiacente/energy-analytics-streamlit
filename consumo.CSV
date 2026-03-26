@@ -1,0 +1,21 @@
+id_transacao;data_hora;modelo_veiculo;local_recarga;kwh_consumido;tempo_minutos;custo_reais
+1001;20/03/2024 08:30;BYD Dolphin;Shopping Central;22.5;45;42.75
+1002;20/03/2024 10:15;Tesla Model 3;Posto Rodovia KM 10;45.0;30;85.50
+1003;20/03/2024 14:00;Volvo XC40;Supermercado Gourmet;15.8;60;30.02
+1004;21/03/2024 09:45;Renault Kwid E-Tech;Condomínio Solar;12.0;120;22.80
+1005;21/03/2024 18:20;BYD Dolphin;Hub Corporativo;30.2;55;57.38
+1006;21/03/2024 19:00;Porsche Taycan;Posto Rodovia KM 10;65.0;25;123.50
+1007;22/03/2024 07:10;Tesla Model 3;Shopping Central;28.4;40;53.96
+1008;22/03/2024 12:30;Volvo XC40;Hub Corporativo;40.0;70;76.00
+1009;22/03/2024 15:45;BYD Dolphin;Supermercado Gourmet;18.5;50;35.15
+1010;23/03/2024 11:00;Renault Kwid E-Tech;Shopping Central;10.5;90;19.95
+1011;23/03/2024 16:20;Tesla Model 3;Posto Rodovia KM 10;50.0;35;95.00
+1012;23/03/2024 21:00;Porsche Taycan;Hub Corporativo;72.0;40;136.80
+1013;24/03/2024 08:00;Volvo XC40;Condomínio Solar;35.0;150;66.50
+1014;24/03/2024 13:15;BYD Dolphin;Shopping Central;25.6;45;48.64
+1015;24/03/2024 17:50;Renault Kwid E-Tech;Supermercado Gourmet;14.2;80;26.98
+1016;25/03/2024 09:10;Tesla Model 3;Posto Rodovia KM 10;42.0;30;79.80
+1017;25/03/2024 14:30;Volvo XC40;Hub Corporativo;38.5;65;73.15
+1018;25/03/2024 19:20;BYD Dolphin;Shopping Central;21.0;40;39.90
+1019;26/03/2024 07:45;Porsche Taycan;Posto Rodovia KM 10;60.0;30;114.00
+1020;26/03/2024 10:00;Renault Kwid E-Tech;Condomínio Solar;11.8;110;22.42
