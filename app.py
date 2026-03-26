@@ -14,7 +14,10 @@ def load_data():
     ld = pd.read_csv("consumo.csv", encoding="latin1", sep=";")
 
     ld["data_hora"] = pd.to_datetime(ld["data_hora"])
+    ld["tempo_horas"] = pd.to_timedelta(ld["tempo_minutos"]).dt.total_seconds() / 3600
+
     return ld
+
 
 ld = load_data()
 
@@ -26,7 +29,8 @@ st.markdown("### 📈 Consumo de Energia por Modelo de Veículo")
 # soma do consumo por modelos
 ld_modelo = ld.groupby("modelo_veiculo")["kwh_consumido"].sum().reset_index()
 
-# Gráfico de barras
+
+# --------- GRÁFICO DE CONSUMO POR MODELOS ---------
 fig = px.bar(
     ld_modelo, 
     x="modelo_veiculo", 
@@ -39,3 +43,22 @@ fig = px.bar(
 
 # Mostrar o gráfico
 st.plotly_chart(fig, use_container_width=True)
+
+# --------- GRÁFICO DE TEMPO MÉDIO POR MODELO ---------
+st.markdown("### ⏱️ Tempo Médio de Recarga por Modelo")
+
+# Agrupando pela média do tempo_horas
+ld_tempo_medio = ld.groupby("modelo_veiculo")["tempo_minutos"].mean().reset_index()
+
+# Criando o gráfico de barras para o tempo médio
+fig_tempo = px.bar(
+    ld_tempo_medio,
+    x="modelo_veiculo",
+    y="tempo_minutos",
+    title="Média de Horas por Sessão de Recarga",
+    labels={"modelo_veiculo": "Modelo", "tempo_minutos": "Tempo Médio (Minutos)"},
+    color="tempo_minutos",
+    color_continuous_scale="Viridis"
+)
+
+st.plotly_chart(fig_tempo, use_container_width=True)
