@@ -6,7 +6,7 @@ import plotly.express as px
 st.set_page_config(page_title="NightForward | Dashboard de Mobilidade Elétrica", layout="wide")
 
 st.title("⚡Monitoramento de Recargas EV - NightForward")
-st.write("O alicerce do projeto está pronto! Se você está lendo isso, o Streamlit está funcionando.")
+st.write("Monitore o consumo de energia e o tempo de recarga dos veículos elétricos com este dashboard interativo. Explore os dados para entender melhor os padrões de uso e eficiência das recargas.")
 
 # --------- FUNÇÃO PARA CARREGAR OS DADOS DO CSV ---------
 @st.cache_data
@@ -26,6 +26,8 @@ ld = load_data()
 # region ******* Barra lateral e filtros *******
 
 # Unidade de tempo
+exibir_tabela = st.sidebar.checkbox("Exibir Banco de Dados", value=False)
+
 st.sidebar.divider()
 unidade = st.sidebar.radio("Exibir tempo em:", ["Minutos", "Horas"])
 
@@ -53,8 +55,11 @@ if modelos_selecionados:
 # endregion
 
 # region ******* Visualizações dos gráficos *******
-st.subheader("Visualização da Base de Dados")
-st.dataframe(ld)
+
+# Exibir tabela de dados
+if exibir_tabela == True:
+    st.subheader("Visualização da Base de Dados")
+    st.dataframe(ld)
 
 st.markdown("### 📈 Consumo de Energia por Modelo de Veículo")
 
